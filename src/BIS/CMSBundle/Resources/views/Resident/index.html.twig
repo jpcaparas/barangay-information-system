@@ -1,0 +1,62 @@
+{% extends 'BISCMSBundle::cms.html.twig' %}
+
+{% block title %}Residents | {{ parent() }}{% endblock title %}
+
+{% block heading %}
+<h1 class="text-center"><i class="fa fa-list"></i> Resident Information</h1>
+{% endblock heading %}
+
+{% block content %}
+    <form method="get" action="{{ app.request.uri }}">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-10">
+                    <input name="keyword" type="text" class="form-control" value="{{ app.request.get('keyword') }}" placeholder="Enter a search term here" />
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <table class="table table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Middle name</th>
+            <th>Gender</th>
+            <th>Birth date</th>
+            <th>Sitio</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('resident_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.fname }}</td>
+                <td>{{ entity.lname }}</td>
+                <td>{{ entity.mname }}</td>
+                <td>{{ entity.gender == 'm' ? 'Male' : 'Female' }}</td>
+                <td>{% if entity.bdate %}{{ entity.bdate|date('M d, Y') }}{% endif %}</td>
+                <td>{{ entity.sitio }}</td>
+                <td>
+                    <a href="{{ path('resident_show', { 'id': entity.id }) }}" title="View {{ entity.fname }}'s profile"><i class="fa fa-user"></i></a>
+                    <a href="{{ path('resident_edit', { 'id': entity.id }) }}" title="Edit {{ entity.fname }}'s profile"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        {{ knp_pagination_render(entities) }}
+    </div>
+    <p>
+        <a href="{{ path('resident_new') }}">
+            <i class="fa fa-plus"></i> Add a new resident
+        </a>
+    </p>
+{% endblock content %}

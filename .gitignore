@@ -1,0 +1,28 @@
+# Temporary files
+*.swp
+*.swo
+
+# Symfony
+/web/bundles/
+/web/css/
+/web/images/
+/web/js/
+/web/uploads/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/build/
+/vendor/
+/bin/
+/composer.phar
+
+# PHPStorm .idea files
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/

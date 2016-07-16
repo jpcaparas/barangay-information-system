@@ -1,0 +1,7 @@
+biscms_login:
+    path:   /login
+    defaults: { _controller: BISCMSBundle:Login:index }
+
+biscms_bundle:
+    resource: "@BISCMSBundle/Controller"
+    type: annotation

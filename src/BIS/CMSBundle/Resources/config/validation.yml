@@ -1,0 +1,13 @@
+BIS\CMSBundle\Entity\Login:
+  #getters:
+    #yahooEmail:
+      #- "True": { message: "That email is not Yahoo email" }
+  properties:
+    email:
+      - NotBlank:
+          message: The email address should not be blank.
+      - Email:
+          message: The email "{{ value }}" is not a valid email.
+    password:
+      - NotBlank:
+          message: You must enter a password.

@@ -1,0 +1,6 @@
+biscms_cms:
+    resource: "@BISCMSBundle/Resources/config/routing.yml"
+    prefix:   /cms
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

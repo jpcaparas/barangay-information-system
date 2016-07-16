@@ -1,0 +1,38 @@
+{% extends 'BISCMSBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% block heading %}
+            <h1 class="text-center">Untitled Page</h1>
+        {% endblock heading %}
+        <hr />
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"{% if app.request.attributes.get('_route') matches '/^resident/' %} class="active"{% endif %}>
+                        <a href="{{ path('resident') }}"><i class="fa fa-user"></i> Resident Information</a>
+                    </li>
+                    <li role="presentation"{% if app.request.attributes.get('_route') matches '/^clearance/' %} class="active"{% endif %}>
+                        <a href="#"><i class="fa fa-certificate"></i> Barangay Clearances</a>
+                    </li>
+                    <li role="presentation"{% if app.request.attributes.get('_route') matches '/^business_permit/' %} class="active"{% endif %}>
+                        <a href="#"><i class="fa fa-building-o"></i> Business Permits</a>
+                    </li>
+                    <li role="presentation"{% if app.request.attributes.get('_route') matches '/^incident/' %} class="active"{% endif %}>
+                        <a href="#"><i class="fa fa-users"></i> Incident Reports</a>
+                    </li>
+                    <li role="presentation"{% if app.request.attributes.get('_route') matches '/^resolution/' %} class="active"{% endif %}>
+                        <a href="#"><i class="fa fa-paperclip"></i> Barangay Resolutions</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9">
+                {% block content %}
+                    <p class="text-center">
+                        <i class="fa fa-exclamation-triangle">No content specified.</i>
+                    </p>
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

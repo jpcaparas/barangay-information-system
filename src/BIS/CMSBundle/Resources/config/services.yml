@@ -1,0 +1,7 @@
+parameters:
+#    biscms.example.class: BIS\CMSBundle\Example
+
+services:
+#    biscms.example:
+#        class: %biscms.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

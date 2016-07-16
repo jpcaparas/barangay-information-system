@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Clearance</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Issuedat</th>
+                <td>{{ entity.issuedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Requestedat</th>
+                <td>{{ entity.requestedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ entity.notes }}</td>
+            </tr>
+            <tr>
+                <th>Requestkey</th>
+                <td>{{ entity.requestKey }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('clearance') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('clearance_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

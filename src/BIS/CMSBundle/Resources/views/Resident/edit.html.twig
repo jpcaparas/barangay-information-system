@@ -1,0 +1,42 @@
+{% extends 'BISCMSBundle::cms.html.twig' %}
+{% form_theme edit_form 'BISCMSBundle:Form:bootstrap_3_layout.html.twig' %}
+
+{% block title %}Edit Resident: {{ entity.lname }}, {{ entity.fname }} | {{ parent() }}{% endblock title %}
+
+{% block heading %}
+    <h1 class="text-center"><i class="fa fa-edit"></i>Editing: <strong>{{ entity.lname }}, {{ entity.fname }}</strong></h1>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <h2 class="text-center">
+            {% if entity.getPhotoWebPath() %}
+                <a href="{{ app.request.getSchemeAndHttpHost() ~ '/' ~ entity.getPhotoWebPath() }}">
+                    <img src="{{ entity.getPhotoWebPath() | imagine_filter('resident_thumb') }}" height="128" width="128" class="img-responsive img-thumbnail" alt="{{ entity.lname ~ ', ' ~ entity.fname }}" />
+                </a>
+            {% else %}
+                {% image '@BISCMSBundle/Resources/public/images/no-photo.png' %}
+                <img src="{{ asset_url }}" height="128" width="128" class="img-responsive img-thumbnail" alt="{{ entity.lname ~ ', ' ~ entity.fname ~ ' (no image)' }}" />
+                {% endimage %}
+            {% endif %}
+        </h2>
+        {{ form(edit_form, {
+        'attr': {
+        'class': 'form-edit',
+        'novalidate': 'novalidate'
+        }
+        }) }}
+        <ul class="list-unstyled form-crud-buttons">
+            <li>
+                <a href="{{ path('resident_show', { 'id': entity.id }) }}" class="btn btn-block btn-info">
+                    Back to profile
+                </a>
+            </li>
+            <li>{{ form(delete_form, {
+                'attr': {
+                'class': 'form-delete'
+                }
+                }) }}</li>
+        </ul>
+    </div>
+{% endblock content %}
