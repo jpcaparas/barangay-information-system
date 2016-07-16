@@ -1,9 +1,9 @@
 Barangay Information System
 ==========================
 
-_Powered by [Symfony](http://symfony.com/)_
+_Powered by [Symfony](http://symfony.com/)._
 
-_Application-specific features authored by: JP Caparas <jp@jpcaparas.com>_.
+_Application-specific features authored by [JP Caparas](http://jpcaparas.com)_
 
 Overview
 -------
@@ -18,8 +18,8 @@ Features
 Requirements
 ------------
 * [Composer](https://getcomposer.org/doc/00-intro.md)
-* PHP ^5.6 || ^7
-* MySQL >= 5.5
+* PHP 5.5.9 (or higher)
+* MySQL 5.5 (or higher)
 * Apache, NGINX, or PHP's built-in web server.
 * A Unix terminal (Bash) or A Unix-like terminal (e.g. Cygwin, Git Bash) if using Windows
 
